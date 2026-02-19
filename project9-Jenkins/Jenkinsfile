@@ -15,18 +15,17 @@ pipeline {
             }
         }
 
-        stage('Debug Workspace') {
-           steps {
-              sh 'pwd'
-              sh 'ls -la'
-            }  
-        }
-
         stage('Build Docker Image') {
-            steps {
-                sh 'docker build -t $IMAGE_NAME .'
-            }
+        steps {
+        sh '''
+        echo "Current directory:"
+        pwd
+        echo "Listing files:"
+        ls -la
+        docker build -t $IMAGE_NAME .
+        '''
         }
+       }
 
         stage('Stop Old Container') {
             steps {
