@@ -22,7 +22,7 @@ pipeline {
         pwd
         echo "Listing files:"
         ls -la
-        docker build -t $IMAGE_NAME .
+        docker build -t $IMAGE_NAME ./project9-Jenkins
         '''
         }
        }

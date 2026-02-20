@@ -41,8 +41,10 @@ resource "aws_instance" "jenkins_server" {
               #!/bin/bash
               yum update -y
 
+              yum install git -y
+
               # Install Java
-              amazon-linux-extras install java-openjdk11 -y
+              amazon-linux-extras install java-openjdk18 -y
 
               # Install Jenkins
               wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
